@@ -1,12 +1,19 @@
 import React from "react";
 
-const SubmitButton: React.FC = () => {
+interface SubmitButtonAttr {
+  isLoading: boolean;
+  isSuccess: boolean;
+}
+
+const SubmitButton: React.FC<SubmitButtonAttr> = ({ isLoading, isSuccess }) => {
   return (
     <button
       type="submit"
-      className="uppercase bg-midnight border rounded-md w-40 h-11 text-white mt-3 font-medium tracking-wide"
+      disabled={isLoading || isSuccess}
+      className={`uppercase border rounded-md w-40 h-11 text-white mt-3 font-medium tracking-wide 
+      ${isSuccess ? "bg-green" : "bg-midnight"}`}
     >
-      Submit
+      {isLoading ? "Submitting ..." : isSuccess ? "Verified" : "Submit"}
     </button>
   );
 };

@@ -8,10 +8,10 @@ router.post(
   "/verify",
   validateInput(otpVerificationSchema),
   (_req: Request, res: Response) => {
-    // setTimeout(() => {
-
-    // }, 500);
-    res.status(200).send("User verified!");
+    // mock the database write
+    setTimeout(() => {
+      res.status(200).send("User verified!");
+    }, 3000);
   }
 );
 

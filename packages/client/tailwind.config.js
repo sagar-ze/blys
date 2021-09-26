@@ -9,6 +9,15 @@ module.exports = {
         midnight: {
           DEFAULT: "#191970",
         },
+        green: {
+          DEFAULT: "#1fb141",
+        },
+        navy: {
+          DEFAULT: "#000080",
+        },
+        info: {
+          DEFAULT: "#17a2b8",
+        },
       },
     },
   },

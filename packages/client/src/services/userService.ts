@@ -4,7 +4,7 @@ import http from "./httpService";
 class UserService {
   verifyUser = async (otp: string) => {
     const { data } = await http.post(userVerificationEndpoint, { otp });
-    return data?.data;
+    return data;
   };
 }
 
