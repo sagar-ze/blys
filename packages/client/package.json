@@ -10,15 +10,21 @@
     "build": "snowpack build"
   },
   "dependencies": {
+    "axios": "^0.21.4",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-query": "^3.24.4",
+    "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
     "@snowpack/plugin-react-refresh": "^2.5.0",
     "@snowpack/plugin-typescript": "^1.2.1",
+    "@types/lodash": "^4.14.174",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.3.0",
     "autoprefixer": "^10.3.5",
     "postcss": "^8.3.8",
     "snowpack": "^3.8.8",

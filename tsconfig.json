@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom", "esnext.asynciterable"],
@@ -9,7 +8,6 @@
     "jsx": "react-jsx",
     "strict": true,
     "moduleResolution": "node",
-    "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -18,12 +16,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "src/",
-    "paths": {
-      "*": [".snowpack/types/*"]
-    }
-  },
-  "include": ["src", "types"],
-  "exclude": ["node_modules", "build", "jest"]
+    "allowSyntheticDefaultImports": true
+  }
 }

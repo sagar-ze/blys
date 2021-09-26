@@ -1,9 +1,12 @@
 import React from "react";
+import Router from "./routes";
 
 const App: React.FC = () => {
   return (
     <div>
-      <h2 className="text-red-700">React setup !</h2>
+      <main>
+        <Router />
+      </main>
     </div>
   );
 };
