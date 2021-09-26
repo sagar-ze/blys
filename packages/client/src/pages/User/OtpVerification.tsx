@@ -7,7 +7,8 @@ const OtpVerification: React.FC = () => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(otp.join(""));
+    const sanitizedOTP = otp.join("");
+    console.log(sanitizedOTP);
   };
 
   return (

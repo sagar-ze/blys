@@ -1,0 +1,27 @@
+{
+  "name": "@blys/server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "module": "14.17.3",
+  "scripts": {
+    "dev": "DEBUG=app:* ts-node-dev --respawn lib/bin/www.ts",
+    "start": "node dist/index.js",
+    "test": "jest --watchAll --verbose"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.13",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": "14.17.3"
+  }
+}
