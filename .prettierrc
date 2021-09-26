@@ -1,0 +1,10 @@
+{
+  "singleQuote": false,
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": false,
+      "printWidth": 120,
+      "tabWidth": 2
+    }
+  }
+}
