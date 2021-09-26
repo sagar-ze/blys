@@ -9,6 +9,8 @@ interface OtpInputAttr {
   onPaste: (event: React.ClipboardEvent) => void;
   focus: number;
   index: number;
+  hasError: boolean;
+  disabled: boolean;
 }
 
 const Input: React.FC<OtpInputAttr> = ({
@@ -17,6 +19,7 @@ const Input: React.FC<OtpInputAttr> = ({
   onChange,
   index,
   setActiveInputField,
+  hasError,
   ...rest
 }) => {
   const inputRef: React.RefObject<HTMLInputElement> = React.createRef();
@@ -50,7 +53,7 @@ const Input: React.FC<OtpInputAttr> = ({
     <input
       {...rest}
       onChange={(event) => onChange(event, index)}
-      className="border-2 py-2 px-3 text-gray-700 w-9 h-9 border-gray-400 focus:outline-none focus:ring-2 focus:ring-info focus:border-transparent rounded border-solid select-none"
+      className={`otp-input ${hasError ? "otp-input-error" : ""}  `}
       ref={inputRef}
       maxLength={1}
       autoComplete="off"

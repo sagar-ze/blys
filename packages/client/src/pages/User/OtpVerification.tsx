@@ -10,8 +10,6 @@ import { otpVerificationSuccessPath } from "../../config/paths";
 const OtpVerification: React.FC = () => {
   const history = useHistory();
 
-  const [otp, setOtp] = React.useState<string[]>(new Array(6).fill(""));
-
   const { mutate, isLoading, isSuccess, isError, error } = useMutation(
     (formData: string) => UserService.verifyUser(formData),
     {
@@ -23,11 +21,7 @@ const OtpVerification: React.FC = () => {
     }
   );
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    const sanitizedOTP = otp.join("");
-    mutate(sanitizedOTP);
-  };
+  const handleSubmit = (otp: string) => mutate(otp);
 
   return (
     <div className="flex flex-col mt-48">
@@ -47,11 +41,9 @@ const OtpVerification: React.FC = () => {
             </button>
           </div>
         )}
-        <form className="grid place-items-center" onSubmit={handleSubmit}>
-          <OtpForm onChange={(otp: string[]) => setOtp(otp)} data={otp} />
-
+        <OtpForm onSubmit={handleSubmit} isLoading={isLoading}>
           <SubmitButton isLoading={isLoading} isSuccess={isSuccess} />
-        </form>
+        </OtpForm>
       </div>
     </div>
   );

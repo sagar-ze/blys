@@ -16,7 +16,7 @@ const OtpVerificationSuccess: React.FC = () => {
         Successfully verified your mobile number!!
       </h1>
       <button
-        className="uppercase border rounded-md pl-4 pr-4 h-11 text-white mt-3 font-medium tracking-wide transition duration-500 ease-in-out bg-midnight hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110 "
+        className="button transition duration-500 ease-in-out bg-midnight hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110 "
         onClick={handleGoBack}
       >
         Try Again
