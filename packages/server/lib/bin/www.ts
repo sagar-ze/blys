@@ -6,7 +6,7 @@ import { ErrnoException } from "../common/interface";
 
 const debug = debugModule("app:server");
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 function normalizePort(val: string) {
   const port = parseInt(val, 10);
