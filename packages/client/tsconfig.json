@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "baseUrl": "./",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
@@ -20,6 +19,7 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "baseUrl": "src/",
     "paths": {
       "*": [".snowpack/types/*"]
     }

@@ -4,7 +4,13 @@ module.exports = {
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        midnight: {
+          DEFAULT: "#191970",
+        },
+      },
+    },
   },
   variants: {
     extend: {},
