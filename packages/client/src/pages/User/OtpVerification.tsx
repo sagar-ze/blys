@@ -8,7 +8,7 @@ const OtpVerification: React.FC = () => {
       <div className="grid place-items-center ">
         <h3 className="text-xl font-semibold">Verification Code:</h3>
         <form className="grid place-items-center">
-          <OtpForm />
+          <OtpForm onChange={(otp: string) => console.log(otp)} />
           <SubmitButton />
         </form>
       </div>
