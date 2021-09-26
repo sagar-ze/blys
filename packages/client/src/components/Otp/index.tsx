@@ -3,11 +3,11 @@ import Input from "./input";
 
 interface OtpFormAttr {
   onChange: (otp: string) => void;
+  data: string;
 }
 
-const OtpForm: React.FC<OtpFormAttr> = (props) => {
+const OtpForm: React.FC<OtpFormAttr> = ({ data, onChange }) => {
   const [activeInputField, setActiveInputField] = React.useState(0);
-  const [data, _setData] = React.useState("");
 
   const getOtpValue = () => data.toString().split("") ?? [];
 
@@ -21,12 +21,14 @@ const OtpForm: React.FC<OtpFormAttr> = (props) => {
     setActiveInputField(Math.max(Math.min(5, input), 0));
   };
 
-  //focus on the next input
+  //focus on the next input field
   const focusNextInputField = () => focusInput(activeInputField + 1);
+  //focus on previous input field
+  const focusPrevInput = () => focusInput(activeInputField - 1);
 
   // Helper to return OTP from input
   const handleOtpChange = (otp: any) => {
-    props.onChange(otp.join(""));
+    onChange(otp.join(""));
   };
 
   const changeCodeAtFocus = (value: any) => {
@@ -39,12 +41,38 @@ const OtpForm: React.FC<OtpFormAttr> = (props) => {
     const value = event.target.value;
     changeCodeAtFocus(value);
   };
+
   //change the focus on  input
   const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (isInputValueValid(event.target.value)) {
       focusNextInputField();
     }
   };
+
+  //handle backspace
+  const handleOnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Backspace") {
+      event.preventDefault();
+      changeCodeAtFocus("");
+      focusPrevInput();
+    } else if (event.key === "Delete") {
+      event.preventDefault();
+      changeCodeAtFocus("");
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      focusPrevInput();
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      focusNextInputField();
+    } else if (
+      event.key === " " ||
+      event.key === "Spacebar" ||
+      event.key === "Space"
+    ) {
+      event.preventDefault();
+    }
+  };
+
   const otp = getOtpValue();
 
   return (
@@ -54,10 +82,11 @@ const OtpForm: React.FC<OtpFormAttr> = (props) => {
           return (
             <Input
               focus={activeInputField}
+              onKeyDown={handleOnKeyDown}
               key={index}
               index={index}
               onInput={handleOnInput}
-              value={otp[index]}
+              value={otp[index] || ""}
               onChange={handleChange}
             />
           );

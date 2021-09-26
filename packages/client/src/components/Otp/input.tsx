@@ -1,14 +1,15 @@
 import React from "react";
 
-interface InputAttr {
+interface OtpInputAttr {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   focus: number;
   index: number;
 }
 
-const Input: React.FC<InputAttr> = ({ focus, value, index, ...rest }) => {
+const Input: React.FC<OtpInputAttr> = ({ focus, value, index, ...rest }) => {
   const inputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
   React.useEffect(() => {
@@ -24,7 +25,7 @@ const Input: React.FC<InputAttr> = ({ focus, value, index, ...rest }) => {
   //and set focus
   React.useEffect(() => {
     const { current } = inputRef;
-    if (focus === index && current && focus) {
+    if (focus === index && current) {
       current.focus();
       current.select();
     }
@@ -33,7 +34,7 @@ const Input: React.FC<InputAttr> = ({ focus, value, index, ...rest }) => {
   return (
     <input
       {...rest}
-      className="border-2 py-2 px-3 text-gray-700 w-9 h-9 border-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent rounded border-solid"
+      className="border-2 py-2 px-3 text-gray-700 w-9 h-9 border-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent rounded border-solid select-none"
       ref={inputRef}
       maxLength={1}
       autoComplete="off"
