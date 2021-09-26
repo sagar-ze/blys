@@ -9,7 +9,7 @@ interface OtpFormAttr {
 }
 
 const OtpForm: React.FC<OtpFormAttr> = ({ children, onSubmit, isLoading }) => {
-  const [activeInputField, setActiveInputField] = React.useState(0);
+  const [activeInputField, setActiveInputField] = React.useState<number>(0);
   const [errors, setErrors] = React.useState<number[] | []>([]);
   const [otp, setOtp] = React.useState<string[]>(new Array(6).fill(""));
 
@@ -48,10 +48,8 @@ const OtpForm: React.FC<OtpFormAttr> = ({ children, onSubmit, isLoading }) => {
       clonedErrors.splice(errorIndex, 1);
       setErrors(union(clonedErrors));
     }
-
     changeCodeAtFocus(value, index);
   };
-
   //change the focus on  input
   const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (isInputValueValid(event.target.value)) {
@@ -100,7 +98,7 @@ const OtpForm: React.FC<OtpFormAttr> = ({ children, onSubmit, isLoading }) => {
 
     const clippedOtp = event.clipboardData
       .getData("text/plain")
-      .slice(0, 5)
+      .slice(0, 6)
       .split("")
       .filter((otp: any) => !isNaN(otp));
 
@@ -110,7 +108,7 @@ const OtpForm: React.FC<OtpFormAttr> = ({ children, onSubmit, isLoading }) => {
         nextActiveInputField++;
       }
     }
-
+    console.log(clonedOtp);
     setActiveInputField(nextActiveInputField);
     focusInput(nextActiveInputField);
     setOtp(clonedOtp);

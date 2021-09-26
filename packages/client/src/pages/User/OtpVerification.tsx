@@ -10,7 +10,7 @@ import { otpVerificationSuccessPath } from "../../config/paths";
 const OtpVerification: React.FC = () => {
   const history = useHistory();
 
-  const { mutate, isLoading, isSuccess, isError, error } = useMutation(
+  const { mutate, isLoading, isSuccess, isError } = useMutation(
     (formData: string) => UserService.verifyUser(formData),
     {
       onSuccess: () => {
@@ -34,7 +34,8 @@ const OtpVerification: React.FC = () => {
             </span>
             <span className="inline-block align-middle mr-8">
               <b className="capitalize">Alert!</b> &nbsp;
-              {(error as any)?.response?.data?.message}
+              {/* {(error as any)?.response?.data?.message} */}
+              Verification Error
             </span>
             <button className="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none">
               <span>×</span>
